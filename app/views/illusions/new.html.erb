@@ -1,0 +1,15 @@
+<% if @errors %>
+  <%= render 'shared/errors.html.erb', locals: {errors: @errors} %>
+<% end %>
+
+<%= form_for @illusion do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :url %>
+  <%= f.text_field :url %>
+  <%#= f.label :tag %>
+  <%#= f.text_field :tag %>
+  <%= f.radio_button :intense, checked: false %>
+  <%= f.label :intense, "Intense? (this content is only available for master magicians)" %>
+  <%= f.submit %>
+<% end %>
