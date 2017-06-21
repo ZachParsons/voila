@@ -7,6 +7,17 @@ class IllusionsController < ApplicationController
   end
 
   def create
+    @illusion = Illusion.new(illusion_params)
+    if @illusion.save
+      redirect_to @illusion, notice: "New illusion added."
+    else
+      @errors = @illusion.errors.full_messages
+      render :new, status: 422
+    end
   end
 
+  private
+    def illusion_params
+      params.require(:illusion).permit(:title, :url, :intense, :creator_id)
+    end
 end
