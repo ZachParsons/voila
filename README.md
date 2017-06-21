@@ -1,24 +1,14 @@
-# README
+# Voilà
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Team Members 
 
-Things you may want to cover:
+* [Zach Parsons](https://github.com/ZachParsons)
 
-* Ruby version
+* [Kosha Patel](https://github.com/kpatel7389)
 
-* System dependencies
+* [Braidy Merkle](https://github.com/bmerkle3)
 
-* Configuration
+* [Jack Howard](https://github.com/jackhowa)
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Description  
+We're making a Rails web app for a successful magician Frederiq. It will have links to magical illusions and other magician info. The links will have headlines that are searchable. Also, the links will be tagged with names like audience participation and/or coin tricks. 
