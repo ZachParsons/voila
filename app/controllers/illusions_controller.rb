@@ -8,6 +8,8 @@ class IllusionsController < ApplicationController
 
   def create
     @illusion = Illusion.new(illusion_params)
+    #make dynamic when we have user model
+    @illusion.creator_id = 1
     if @illusion.save
       redirect_to @illusion, notice: "New illusion added."
     else
@@ -18,6 +20,6 @@ class IllusionsController < ApplicationController
 
   private
     def illusion_params
-      params.require(:illusion).permit(:title, :url, :intense, :creator_id)
+      params.require(:illusion).permit(:title, :url, :intense)
     end
 end
