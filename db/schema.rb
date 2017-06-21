@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20170621193423) do
     t.string "stage_name"
     t.string "email"
     t.string "password_digest"
-    t.boolean "master"
+    t.boolean "master", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
