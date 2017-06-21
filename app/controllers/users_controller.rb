@@ -12,6 +12,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def new_master
+    @user = User.new
+  end
+
+
+
   private
   def user_params
     params.require(:user).permit(:stage_name, :email, :password)
