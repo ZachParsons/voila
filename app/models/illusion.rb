@@ -5,7 +5,5 @@ class Illusion < ApplicationRecord
   # has_many :starrings
   # has_many :starrers, through: :starrings, source: :user
 
-
   validates :title, :url, :creator_id, presence: true
-
 end
