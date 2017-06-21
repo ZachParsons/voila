@@ -1,1 +1,7 @@
-<h1>hi stagename</h1>
+<% if @user.master == true %>
+  <h1>Hi Master!!</h1>
+<% else %>
+  <h1>Howdy Apprentice!!</h1>
+<% end %>
+
+

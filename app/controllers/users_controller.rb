@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    if @user.check_master(params[:user][:secret])
+    if @user.check_master(user_params[:secret])
       @user.master = true
     end
 
@@ -19,6 +19,10 @@ class UsersController < ApplicationController
 
   def new_master
     @user = User.new
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   private
