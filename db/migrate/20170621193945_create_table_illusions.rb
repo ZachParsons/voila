@@ -1,6 +1,6 @@
 class CreateTableIllusions < ActiveRecord::Migration[5.1]
   def change
-    create_table :table_illusions do |t|
+    create_table :illusions do |t|
       t.string :title, null: false
       t.string :url, null: false
       t.boolean :intense, default: false

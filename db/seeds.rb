@@ -6,8 +6,8 @@ require 'faker'
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-illusions = 10.times do
-  Illusion.create(title: Faker::HitchhikersGuideToTheGalaxy.specie,
+illusions = 10.times.map do
+  Illusion.create!(title: Faker::Ancient.titan,
                   url: Faker::Internet.url,
                   intense: Faker::Boolean.boolean,
                   creator_id: Faker::Number.between(1, 6))
