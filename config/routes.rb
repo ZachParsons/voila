@@ -5,4 +5,6 @@ Rails.application.routes.draw do
 
   resources :illusions
 
+  get '/users/new/masters', to: 'users#new_master', as: :new_master
+
 end
