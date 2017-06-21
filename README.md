@@ -1,24 +1,21 @@
-# README
+# Voilà
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Team Members 
 
-Things you may want to cover:
+* [Zach Parsons](https://github.com/ZachParsons)
 
-* Ruby version
+* [Kosha Patel](https://github.com/kpatel7389)
 
-* System dependencies
+* [Braidy Merkle](https://github.com/bmerkle3)
 
-* Configuration
+* [Jack Howard](https://github.com/jackhowa)
 
-* Database creation
+## Description  
+We're making a Rails web app for a successful magician Frederiq. It will have links to magical illusions and other magician info. The links will have headlines that are searchable. Also, the links will be tagged with names like audience participation and/or coin tricks. 
 
-* Database initialization
+A master user has access to the highly intense tricks that an apprentice wouldn't be ready for. Like, an audience member being sawed-off.
 
-* How to run the test suite
+Turn your apprentice status into master. 
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Trello 
+* [Agile workflow board](https://trello.com/b/3o3Sstt8/voila-dbc-clientproject-sealions)
