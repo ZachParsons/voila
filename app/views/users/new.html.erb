@@ -14,8 +14,8 @@
 
   <ul>
     <% @masters.each do |master| %>
-      <li><%= label :master, master.stage_name %>
-      <%= f.radio_button :master, master.id %></li>
+      <li><%= label :master_id, master.stage_name %>
+      <%= f.radio_button :master_id, master.id %></li>
     <% end %>
   </ul>
 

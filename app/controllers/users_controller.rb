@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
+    p user_params
     if @user.check_master(user_params[:secret])
       @user.master = true
     end
@@ -29,6 +29,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:stage_name, :secret, :email, :password)
+    params.require(:user).permit(:stage_name, :secret, :email, :password, :master_id)
   end
 end
