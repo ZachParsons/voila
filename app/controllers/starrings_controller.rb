@@ -1,12 +1,10 @@
 class StarringsController < ApplicationController
   def create
-    p params
-    p starring_params
-    @starring = Starring.new(starring_params)
-    @starring.starrer = current_user
-    @starring.illusion = Illusion.find(starring_params[:illusion_id])
+    @starring = Starring.new
+    @starring.starrer = User.find(params[:user_id])
+    @starring.illusion = Illusion.find(params[:illusion_id])
     if @starring.save
-      redirect_to user_path
+      redirect_to user_path(@starring.starrer)
     else
       @errors = @starring.errors.full_messages
       status 422
@@ -17,6 +15,6 @@ class StarringsController < ApplicationController
 
   private
   def starring_params
-    params.require(:starring).permit(:illusion_id, :user_id)
+    params.permit(:illusion_id)
   end
 end

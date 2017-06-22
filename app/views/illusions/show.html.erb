@@ -13,5 +13,4 @@
   <%= render 'shared/errors.html.erb', locals: {errors: @errors} %>
 <% end %>
 
-
 <%= button_to "Star", starrings_path(current_user.id, @illusion.id)  %>

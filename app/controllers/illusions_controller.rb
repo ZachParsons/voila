@@ -28,4 +28,5 @@ class IllusionsController < ApplicationController
     def illusion_params
       params.require(:illusion).permit(:title, :url, :intense)
     end
+
 end
