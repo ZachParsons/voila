@@ -12,5 +12,14 @@
   <%= f.label :password, "Password" %>
   <%= f.text_field :password %>
 
+  <ul>
+    <% @masters.each do |master| %>
+      <li><%= label :master, master.stage_name %>
+      <%= f.radio_button :master, master.id %></li>
+    <% end %>
+  </ul>
+
   <%= f.submit %>
 <% end %>
+
+

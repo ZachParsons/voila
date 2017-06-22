@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
+    @masters = User.where(master: true)
   end
+
   def create
     @user = User.new(user_params)
 
