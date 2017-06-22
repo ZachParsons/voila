@@ -11,4 +11,5 @@ Rails.application.routes.draw do
 
   get '/users/new/masters', to: 'users#new_master', as: :new_master
 
+  post '/users/:user_id/illusions/:illusion_id', to: 'starrings#create', as: :starrings
 end
