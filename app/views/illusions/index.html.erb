@@ -1,0 +1,10 @@
+ <!-- masters-only illusions -->
+
+  <% if @masters_illusions.length > 0 %>
+    <ul>
+    <% @masters_illusions.each do |illusion| %>
+      <li><%= link_to "#{illusion.title}", "#{illusion.url}" %></li>
+    <% end %>
+    </ul>
+  <% end %>
+
