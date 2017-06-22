@@ -26,6 +26,7 @@ class IllusionsController < ApplicationController
   end
 
   def show
+    @illusion = Illusion.find(params[:id])
   end
 
   private
