@@ -46,7 +46,7 @@ class IllusionsController < ApplicationController
 
   private
     def illusion_params
-      params.require(:illusion).permit(:title, :url, :intense)
+      params.require(:illusion).permit(:title, :url, :intense, :approval)
     end
 
     def tag_params

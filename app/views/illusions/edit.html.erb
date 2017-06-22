@@ -8,8 +8,12 @@
   <%= f.fields_for :tags do |t| %>
     <%= t.text_field :name %>
   <% end %>
+  
+  <%= f.label :approval %>
+  <%= f.check_box :approval, checked: false %>
 
-  <%= f.radio_button :intense, checked: false %>
   <%= f.label :intense, "Intense? (this content is only available for master magicians)" %>
+  <%= f.check_box :intense, checked: false %>
+  
   <%= f.submit %>
 <% end %>

@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20170622233804) do
     t.integer "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "approval"
+    t.boolean "approval", default: false
   end
 
   create_table "starrings", force: :cascade do |t|
