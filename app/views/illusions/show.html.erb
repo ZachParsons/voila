@@ -1,4 +1,5 @@
-<h1><%= @illusion.title  %></h1>
+
+<h2>Illusion: <%= @illusion.title %></h2>
 
 <% if current_user.master == false  %>
 <!-- add this when illusion migration adds column approved -->
@@ -7,10 +8,14 @@
 <% end %>
     Title: <%= @illusion.title %>
     Url: <%= link_to @illusion.url, @illusion.url %>
-    Tags:
+    <% @illusion.tags.each do |tag| %>
+           Tags: <%= tag %>
+    <% end %>
+
 
 <% if @errors %>
   <%= render 'shared/errors.html.erb', locals: {errors: @errors} %>
 <% end %>
 
 <%= button_to "Star", starrings_path(current_user.id, @illusion.id)  %>
+
