@@ -26,7 +26,21 @@ class IllusionsController < ApplicationController
     end
   end
 
+  def update
+    @illusion = Illusion.find(params[:id])
+    @illusion.tags << tag_parser(params[:illusion][:tags][:name])
+    if @illusion.update(illusion_params)
+      redirect_to @illusion
+    else
+      render 'edit'
+    end
+  end 
+
   def show
+    @illusion = Illusion.find(params[:id])
+  end
+
+  def edit 
     @illusion = Illusion.find(params[:id])
   end
 
