@@ -10,8 +10,12 @@
 
   <body>
 
-    <%= link_to "Register", new_user_path %>
-
+    <% if session[:user_id] == nil %>
+      <%= link_to "Login", new_session_url %>
+      <%= link_to "Register", new_user_url %>
+    <% else %>
+      <%= link_to "Logout", session_path(session), method: :delete %>
+    <% end %>
 
     <%= yield %>
   </body>
