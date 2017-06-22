@@ -1,7 +1,16 @@
 <% if @user.master == true %>
   <h1>Hi Master!!</h1>
+  <%= link_to "Masters-Only Illusions", masters_illusions_path %>
 <% else %>
   <h1>Howdy Apprentice!!</h1>
 <% end %>
 
+<%= link_to 'Add a new Illusion', new_illusion_path %>
 
+<% if @user.illusions.length > 0 %>
+  <ul>
+  <% @user.illusions.each do |illusion| %>
+    <li><%= link_to "#{illusion.title}", "#{illusion.url}" %></li>
+  <% end %>
+  </ul>
+<% end %>
