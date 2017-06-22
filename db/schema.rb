@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170622165727) do
+ActiveRecord::Schema.define(version: 20170622192825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20170622165727) do
     t.string "url", null: false
     t.boolean "intense", default: false
     t.integer "creator_id"
+    t.boolean "approved", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -36,6 +37,8 @@ ActiveRecord::Schema.define(version: 20170622165727) do
   create_table "starrings", force: :cascade do |t|
     t.integer "illusion_id"
     t.integer "starrer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tags", force: :cascade do |t|
@@ -49,6 +52,7 @@ ActiveRecord::Schema.define(version: 20170622165727) do
     t.string "email"
     t.string "password_digest"
     t.boolean "master", default: false
+    t.integer "master_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
