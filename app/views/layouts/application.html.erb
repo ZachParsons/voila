@@ -16,7 +16,7 @@
     <% else %>
       <%= link_to "Logout", session_path(session), method: :delete %>
     <% end %>
-
+    <%= link_to "Search", illusions_path %>
     <%= yield %>
   </body>
 </html>
