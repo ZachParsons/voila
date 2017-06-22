@@ -1,4 +1,5 @@
 class IllusionsController < ApplicationController
+
   def index
     @masters_illusions = Illusion.all.where(intense: true)
   end
@@ -10,11 +11,11 @@ class IllusionsController < ApplicationController
   def create
     @illusion = Illusion.new(illusion_params)
     @illusion.creator_id = session[:user_id]
-    # @tag = Tag.new(tag_params)
-
-    # split user-inputted tags string
+    # split user-inputted string
     # iterate over comma-seperated list of tags
     # create tag for each
+
+    @illusion.tags << tag_parser(params[:illusion][:tags][:name])
 
     if @illusion.save
       redirect_to @illusion.creator, notice: "New illusion added."
@@ -32,6 +33,6 @@ class IllusionsController < ApplicationController
       params.require(:illusion).permit(:title, :url, :intense)
     end
     def tag_params
-      params.require(:illusion).permit(:tag)
+      params.require(:illusion).permit(:tags => :name)
     end
 end
