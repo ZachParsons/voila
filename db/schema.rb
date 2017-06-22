@@ -10,16 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170621193945) do
+ActiveRecord::Schema.define(version: 20170622165727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "illusion_tags", force: :cascade do |t|
+    t.bigint "illusion_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["illusion_id"], name: "index_illusion_tags_on_illusion_id"
+    t.index ["tag_id"], name: "index_illusion_tags_on_tag_id"
+  end
 
   create_table "illusions", force: :cascade do |t|
     t.string "title", null: false
     t.string "url", null: false
     t.boolean "intense", default: false
     t.integer "creator_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
