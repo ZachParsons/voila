@@ -1,5 +1,6 @@
 <% if @user.master == true %>
   <h1>Hi Master!!</h1>
+  <%= link_to "Masters-Only Illusions", masters_illusions_path %>
 <% else %>
   <h1>Howdy Apprentice!!</h1>
 <% end %>
