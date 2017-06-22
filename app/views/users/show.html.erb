@@ -4,4 +4,12 @@
   <h1>Howdy Apprentice!!</h1>
 <% end %>
 
+<%= link_to 'Add a new Illusion', new_illusion_path %>
 
+<% if @user.illusions.length > 0 %>
+  <ul>
+  <% @user.illusions.each do |illusion| %>
+    <li><%= link_to "#{illusion.title}", "#{illusion.url}" %></li>
+  <% end %>
+  </ul>
+<% end %>
