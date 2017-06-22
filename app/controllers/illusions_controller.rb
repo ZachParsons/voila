@@ -1,4 +1,5 @@
 class IllusionsController < ApplicationController
+
   def index
     @masters_illusions = Illusion.all.where(intense: true)
   end
@@ -10,7 +11,9 @@ class IllusionsController < ApplicationController
   def create
     @illusion = Illusion.new(illusion_params)
     @illusion.creator_id = session[:user_id]
-    p @illusion
+
+    @illusion.tags << tag_parser(params[:illusion][:tags][:name])
+    
     if @illusion.save
       redirect_to illusion_path(@illusion), notice: "New illusion added."
     else
@@ -20,12 +23,15 @@ class IllusionsController < ApplicationController
   end
 
   def show
-    p params
+
     @illusion = Illusion.find(params[:id])
   end
 
   private
     def illusion_params
       params.require(:illusion).permit(:title, :url, :intense)
+    end
+    def tag_params
+      params.require(:illusion).permit(:tags => :name)
     end
 end

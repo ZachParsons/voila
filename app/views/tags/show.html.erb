@@ -1,0 +1,7 @@
+<h2>Tag: <%= @tag.name %></h2>
+
+<ul>
+<% @tag.illusions.each do |illusion| %>
+  <li><%= link_to illusion.title, illusion %></li>
+<% end %>
+</ul>
