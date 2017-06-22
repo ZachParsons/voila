@@ -2,7 +2,14 @@ class IllusionsController < ApplicationController
 
   def index
     if params[:search]
-      @illusions = Illusion.where(title: params[:search])
+      # .downcase, .strip, split(" "),
+      search_terms = params[:search]
+      search_terms_array = search_terms.strip.downcase.split(" ")
+
+      search_terms_array.each do |search_term|
+        @illusions << Illusion.where(title: search_term)
+      end
+
     else
       @illusions = Illusion.all
     end
