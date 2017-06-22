@@ -12,7 +12,7 @@ class IllusionsController < ApplicationController
     @illusion.creator_id = session[:user_id]
 
     if @illusion.save
-      redirect_to @illusion.creator, notice: "New illusion added."
+      redirect_to illusion_path, notice: "New illusion added."
     else
       @errors = @illusion.errors.full_messages
       render :new, status: 422
@@ -20,6 +20,7 @@ class IllusionsController < ApplicationController
   end
 
   def show
+    @illusion = Illusion.find()
   end
 
   private
