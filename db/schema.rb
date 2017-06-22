@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20170622165727) do
     t.string "title", null: false
     t.string "url", null: false
     t.boolean "intense", default: false
-    t.integer "creator_id", null: false
+    t.integer "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

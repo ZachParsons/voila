@@ -4,7 +4,7 @@ class CreateTableIllusions < ActiveRecord::Migration[5.1]
       t.string :title, null: false
       t.string :url, null: false
       t.boolean :intense, default: false
-      t.integer :creator_id, null: false
+      t.integer :creator_id
       t.timestamps(null: false)
     end
   end
