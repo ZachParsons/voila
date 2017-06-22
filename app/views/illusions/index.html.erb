@@ -1,10 +1,14 @@
  <!-- masters-only illusions -->
 
-  <% if @masters_illusions.length > 0 %>
-    <ul>
-    <% @masters_illusions.each do |illusion| %>
-      <li><%= link_to "#{illusion.title}", "#{illusion.url}" %></li>
-    <% end %>
-    </ul>
+<%= form_tag illusions_path, method: 'get' do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+  <ul>
+  <% @illusions.each do |illusion| %>
+    <li><%= link_to illusion.title, illusion %></li>
   <% end %>
+  </ul>
+
 
