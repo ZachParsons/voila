@@ -1,12 +1,13 @@
 <h2>Tags</h2>
-<ul>
+<ul class="collection">
+
 <% if current_user %>
   <% Tag.find_appropriate_tags(current_user).each do |tag| %>
-    <li><%= link_to tag.name, tag %></li>
+    <li><%= link_to tag.name, tag, class: "collection-item" %></li>
   <% end %>
 <% else %>
   <% Tag.find_appropriate_unlogged_in_tags.each do |tag| %>
-    <li><%= link_to tag.name, tag %></li>
+    <li><%= link_to tag.name, tag, class: "collection-item" %></li>
   <% end %>
  <% end %>
 </ul>

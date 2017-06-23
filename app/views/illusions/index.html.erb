@@ -5,9 +5,9 @@
   <%= submit_tag "Search" %>
 <% end %>
 
-  <ul>
+  <ul class="collection">
   <% @illusions.each do |illusion| %>
-    <li><%= link_to illusion.title, illusion %></li>
+    <li><%= link_to illusion.title, illusion, class: "collection-item" %></li>
   <% end %>
   </ul>
 

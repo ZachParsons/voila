@@ -1,7 +1,9 @@
 
 <h2>Illusion: <%= @illusion.title %></h2>
 
-<% if current_user.master == false && @illusion.approval == false  %>
+<!-- if current_user.master == false && -->
+<!-- error if no user -->
+<% if  @illusion.approval == false  %>
 <!-- add this when illusion migration adds column approved -->
 <!-- && @illusion.approved == false -->
   <p> Your new submission is pending...</p>
@@ -17,7 +19,9 @@
   <%= render 'shared/errors.html.erb', locals: {errors: @errors} %>
 <% end %>
 
-<%= button_to "Star", starrings_path(current_user.id, @illusion.id)  %>
+<% if current_user %>
+  <%= button_to "Star", starrings_path(current_user.id, @illusion.id)  %>
+<% end %>
 
 <% if current_user == @illusion.creator %>
 	<!-- or if the master is viewing her illusion creator's work 

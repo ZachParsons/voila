@@ -11,14 +11,24 @@
 
   <%= f.label :password, "Password" %>
   <%= f.text_field :password %>
-
-  <ul>
+  
+  <%= f.fields_for :master do |t| %>
     <% @masters.each do |master| %>
-      <li><%= label :master_id, master.stage_name %>
-      <%= f.radio_button :master_id, master.id %></li>
+    
+      <li><%= label :master_id, m.stage_name %></li>
+      <li><%= f.radio_button :master_id, m.id %></li>
+    <%= t.text_field :name %>
+  <% end %>
+  
+
+  <% if false %>
+  <ul> 
+    <% form_for @user.master do |m| %>
+      <li><%= label :master_id, m.stage_name %></li>
+      <li><%= f.radio_button :master_id, m.id %></li>
     <% end %>
   </ul>
-
+  <% end %>
   <%= f.submit %>
 <% end %>
 
