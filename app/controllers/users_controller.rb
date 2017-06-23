@@ -25,6 +25,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+
+    if @user.master
+      @apprentices = User.all.select { |potential_apprentice| potential_apprentice.a_master == @user}
+    end
   end
 
   private
