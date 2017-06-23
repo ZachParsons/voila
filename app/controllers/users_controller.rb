@@ -6,7 +6,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    p user_params
     if @user.check_master(user_params[:secret])
       @user.master = true
     end
@@ -15,6 +14,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to @user
     else
+      @errors = @user.errors.full_messages
+      status 422
       render 'new'
     end
   end
