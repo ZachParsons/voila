@@ -21,8 +21,8 @@
 <% if @user.illusions.length > 0 %>
 <p>Here are your illusions submitted:</p>
   <ul>
-  <% @user.illusions.each do |illusion| %>
-    <li><%= link_to illusion.title, illusion_path %></li>
+  <% @user.illusions.each do |user_illusion| %>
+     <li><a href="/illusions/<%= user_illusion.id %>"><%= user_illusion.title %></a></li>
   <% end %>
   </ul>
 <% end %>
@@ -32,7 +32,9 @@
     <p><%= apprentice.stage_name %>'s pending submissions</p>
     <ul>
     <% apprentice.illusions.each do |apprentice_illusion| %>
-      <li><a href="illusions/<%= apprentice_illusion.id %>"><%= apprentice_illusion.title %></a></li>
+      <% if apprentice_illusion.approval == false %>
+        <li><a href="/illusions/<%= apprentice_illusion.id %>"><%= apprentice_illusion.title %></a></li>
+      <% end %>
     <% end %>
     </ul>
   <% end %>
