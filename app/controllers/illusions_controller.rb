@@ -4,9 +4,9 @@ class IllusionsController < ApplicationController
     if params[:search]
       searched_terms = params[:search]
       stripped = searched_terms.strip
-      stripped_split = stripped.split(" ")
 
       # working on multi-word searching
+      # stripped_split = stripped.split(" ")
       # stripped_split.each do |term|
       #   @illusions << Illusion.search(term)
       # end
@@ -64,13 +64,13 @@ class IllusionsController < ApplicationController
   end
 
   def edit
-    if current_user == nil 
+    if current_user == nil
       redirect_to new_session_path
-    end 
+    end
 
     @illusion = Illusion.find(params[:id])
-    
-    # all of the unallowed people 
+
+    # all of the unallowed people
     if current_user != @illusion.creator && current_user != @illusion.creator.a_master
       redirect_to new_session_path
     end
