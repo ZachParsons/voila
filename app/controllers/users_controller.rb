@@ -27,6 +27,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    if current_user == nil || current_user != @user
+      redirect_to root_path
+    end
 
     if @user.master
       @apprentices = User.all.select { |potential_apprentice| potential_apprentice.a_master == @user}
