@@ -5,4 +5,6 @@ class Illusion < ApplicationRecord
   has_many :illusion_tags
   has_many :tags, through: :illusion_tags, source: :tag
   validates :title, :url, presence: true
+
+
 end
