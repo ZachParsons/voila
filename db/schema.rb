@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20170622192825) do
     t.string "url", null: false
     t.boolean "intense", default: false
     t.integer "creator_id"
+    t.boolean "approved", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -51,6 +52,7 @@ ActiveRecord::Schema.define(version: 20170622192825) do
     t.string "email"
     t.string "password_digest"
     t.boolean "master", default: false
+    t.integer "master_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
