@@ -14,8 +14,9 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to @user
     else
-      @errors = @user.errors.full_messages
-      status 422
+      # @errors = @user.errors.full_messages
+      # status 422
+      @masters = User.where(master: true)
       render 'new'
     end
   end
