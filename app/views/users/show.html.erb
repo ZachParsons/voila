@@ -16,3 +16,13 @@
   <% end %>
   </ul>
 <% end %>
+
+
+<% if @user.illusions.length > 0 %>
+<p>Here are your illusions submitted:</p>
+  <ul>
+  <% @user.illusions.each do |illusion| %>
+    <li><%= link_to illusion.title, illusion_path %></li>
+  <% end %>
+  </ul>
+<% end %>
