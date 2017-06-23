@@ -11,11 +11,11 @@
 
   <%= f.label :password, "Password" %>
   <%= f.text_field :password %>
-  
-    <% @masters.each do |master| %>
-      <%= label :master_id, master.stage_name %>
-      <%= f.radio_button :master_id, master.id %>
-    <% end %>
+
+      <% @masters.each do |master| %>
+        <input name="master_id" value="<%= master.id %>" type="radio" id="<%= master.id %>" />
+        <label for="<%= master.id %>"><%= master.stage_name %></label>
+      <% end %>
 
   <%= f.submit %>
 <% end %>

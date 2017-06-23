@@ -8,7 +8,8 @@
   <p> Your new submission is pending...</p>
 <% end %>
 
-    Title: <%= @illusion.title %>
+ <!--  make a ul collection here -->
+  Title: <%= @illusion.title %>
     Url: <%= link_to @illusion.url, @illusion.url %>
     <% @illusion.tags.each do |tag| %>
            Tags: <%= tag.name %>
@@ -21,11 +22,6 @@
 
 <% if current_user %>
   <%= button_to "Star", starrings_path(current_user.id, @illusion.id)  %>
-<<<<<<< HEAD
-<% end %>
-=======
-
->>>>>>> master
 
   <% if current_user == @illusion.creator || current_user.master == true %>
   	<!-- or if the master is viewing her illusion creator's work 
