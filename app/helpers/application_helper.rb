@@ -14,4 +14,16 @@ module ApplicationHelper
     return unless session[:user_id]
     @current_user ||= User.find(session[:user_id])
   end
+
+  def intense?
+    # user logged in
+    if current_user
+      # logged in user is a master
+      current_user.master
+    else
+      # the user is not logged in
+      false
+    end
+  end
+
 end

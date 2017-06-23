@@ -9,14 +9,14 @@
   </head>
 
   <body>
-
+    <%= link_to "Home", root_path %>
     <% if session[:user_id] == nil %>
       <%= link_to "Login", new_session_url %>
       <%= link_to "Register", new_user_url %>
     <% else %>
       <%= link_to "Logout", session_path(session), method: :delete %>
     <% end %>
-
+    <%= link_to "Search", illusions_path %>
     <%= yield %>
   </body>
 </html>
