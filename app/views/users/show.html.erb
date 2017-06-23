@@ -31,8 +31,8 @@
   <% @apprentices.each do |apprentice| %>
     <p><%= apprentice.stage_name %>'s pending submissions</p>
     <ul>
-    <% apprentice.illusions.each do |illusion| %>
-      <li><%= link_to illusion.title, illusion_path %></li>
+    <% apprentice.illusions.each do |apprentice_illusion| %>
+      <li><a href="illusions/<%= apprentice_illusion.id %>"><%= apprentice_illusion.title %></a></li>
     <% end %>
     </ul>
   <% end %>
