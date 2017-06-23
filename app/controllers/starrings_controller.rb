@@ -12,9 +12,18 @@ class StarringsController < ApplicationController
     end
   end
 
+  def destroy
+    p "params: #{params}"
+    @starring = Starring.find(params[:starrings_id])
+    p @starring
+    @starring.destroy
+    redirect_to user_path(current_user.id)
+  end
 
   private
   def starring_params
     params.permit(:illusion_id)
   end
+
+
 end
