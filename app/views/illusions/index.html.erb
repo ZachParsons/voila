@@ -2,7 +2,7 @@
 
 <%= form_tag illusions_path, method: 'get' do %>
   <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag "Search" %>
+  <%= submit_tag "Search", :title => nil %>
 <% end %>
 
   <ul>
@@ -10,5 +10,3 @@
     <li><%= link_to illusion.title, illusion %></li>
   <% end %>
   </ul>
-
-
