@@ -53,9 +53,13 @@ class IllusionsController < ApplicationController
   end
 
   def edit
+    if current_user == nil 
+      redirect_to new_session_path
+    end 
+
     @illusion = Illusion.find(params[:id])
     # all of the unallowed people 
-    if current_user == nil && current_user != @illusion.creator && current_user != @illusion.creator.a_master
+    if current_user != @illusion.creator && current_user != @illusion.creator.a_master
       redirect_to new_session_path
     end
   end
