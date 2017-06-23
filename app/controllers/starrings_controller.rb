@@ -12,6 +12,9 @@ class StarringsController < ApplicationController
     end
   end
 
+  def destroy
+
+  end
 
   private
   def starring_params
