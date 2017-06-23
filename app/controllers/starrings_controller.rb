@@ -1,5 +1,8 @@
 class StarringsController < ApplicationController
   def create
+    if session[:user_id] == nil
+      redirect_to root_path
+    end
     @starring = Starring.new
     @starring.starrer = User.find(params[:user_id])
     @starring.illusion = Illusion.find(params[:illusion_id])
@@ -13,6 +16,9 @@ class StarringsController < ApplicationController
   end
 
   def destroy
+    if session[:user_id] == nil
+      redirect_to root_path
+    end
     p "params: #{params}"
     @starring = Starring.find(params[:starrings_id])
     p @starring
