@@ -1,5 +1,8 @@
 <h1>Master Registration</h1>
 
+<% if @errors %>
+  <%= render 'shared/errors.html.erb', locals: {errors: @errors} %>
+<% end %>
 
 <%= form_for @user, url: users_path do |f| %>
   <%= f.label :stage_name, "Stage Name" %>

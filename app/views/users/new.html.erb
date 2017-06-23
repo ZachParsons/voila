@@ -1,5 +1,9 @@
 <h1>Apprentice Registration</h1>
 
+<% if @errors %>
+  <%= render 'shared/errors.html.erb', locals: {errors: @errors} %>
+<% end %>
+
 <%= link_to "Master Registration", new_master_path %>
 
 <%= form_for(:user, url: users_path) do |f| %>
