@@ -3,11 +3,18 @@ class IllusionsController < ApplicationController
   def index
     if params[:search]
       searched_terms = params[:search]
-      stripped_searched_terms = searched_terms.strip
+      stripped = searched_terms.strip
+      stripped_split = stripped.split(" ")
+
+      # working on multi-word searching
+      # stripped_split.each do |term|
+      #   @illusions << Illusion.search(term)
+      # end
+
       # make sure only approval show up in index
       # @illusions = Illusion.where(title: params[:search], approval: true)
 
-      @illusions = Illusion.search(stripped_searched_terms)
+      @illusions = Illusion.search(stripped)
 
     else
       @illusions = Illusion.where(approval: true)

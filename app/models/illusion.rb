@@ -8,14 +8,6 @@ class Illusion < ApplicationRecord
   validates :title, :url, presence: true
   validates :url, uniqueness: true
 
-  # def self.search(searched_title)
-  #   if searched_title
-  #     find(:all, :conditions => ["title LIKE ?", "%#{searched_title}%"])
-  #   else
-  #     find(:all)
-  #   end
-  # end
-
   def self.search(searched_title)
     if searched_title
       where("title ILIKE ?", "%#{searched_title}%")
