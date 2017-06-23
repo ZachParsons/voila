@@ -57,12 +57,6 @@ class IllusionsController < ApplicationController
 
   def show
     @illusion = Illusion.find(params[:id])
-
-    if @illusion.approval == false && current_user == @illusion.creator
-      # all good
-    else 
-      redirect_to illusions_path, notice: "This page is under review."
-    end
   end
 
   def edit
