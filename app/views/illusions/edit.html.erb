@@ -9,10 +9,10 @@
     <%= t.text_field :name %>
   <% end %>
   
-  <!-- f @illusion.creator.master == current_user -->
-  <%= f.label :approval %>
-  <%= f.check_box :approval, checked: false %>
-  <!-- end -->
+  <% if @illusion.creator.master == current_user %>
+    <%= f.label :approval %>
+    <%= f.check_box :approval, checked: false %>
+  <% end %>
   <!--   added checkboxes in case they change their mind they can untick
   whereas radio buttons are typically used for multiple options and switching them 
   to undo one
