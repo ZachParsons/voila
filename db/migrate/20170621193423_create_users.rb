@@ -5,6 +5,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :email
       t.string :password_digest
       t.boolean :master, default: false
+      t.integer :master_id
 
       t.timestamps
     end
