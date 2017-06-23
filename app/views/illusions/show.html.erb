@@ -1,7 +1,7 @@
 
 <h2>Illusion: <%= @illusion.title %></h2>
 
-<% if current_user.master == false  %>
+<% if current_user.master == false && @illusion.approval == false  %>
 <!-- add this when illusion migration adds column approved -->
 <!-- && @illusion.approved == false -->
   <p> Your new submission is pending...</p>
@@ -9,7 +9,7 @@
     Title: <%= @illusion.title %>
     Url: <%= link_to @illusion.url, @illusion.url %>
     <% @illusion.tags.each do |tag| %>
-           Tags: <%= tag %>
+           Tags: <%= tag.name %>
     <% end %>
 
 
@@ -19,3 +19,12 @@
 
 <%= button_to "Star", starrings_path(current_user.id, @illusion.id)  %>
 
+<% if current_user == @illusion.creator %>
+	<!-- or if the master is viewing her illusion creator's work 
+ 	may need to allow an exception for viewing illusion work if creator
+	rather than locking down the show page based on skill
+	so that a master can view her apprentice's work regardless of its intensity
+	edge case though
+ 	-->	
+ <%= link_to "Edit", edit_illusion_path  %>
+<% end %>
