@@ -22,7 +22,7 @@
   <%= button_to "Star", starrings_path(current_user.id, @illusion.id)  %>
 
 
-  <% if current_user == @illusion.creator || current_user.master == true %>
+  <% if current_user == @illusion.creator || @illusion.creator.a_master == current_user %>
   	<!-- or if the master is viewing her illusion creator's work 
    	may need to allow an exception for viewing illusion work if creator
   	rather than locking down the show page based on skill

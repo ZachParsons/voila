@@ -9,7 +9,7 @@
     <%= t.text_field :name %>
   <% end %>
 
-  <% if current_user && current_user.master == true %>
+  <% if current_user.master == true %>
     <%= f.label :approval %>
     <%= f.check_box :approval, checked: false %>
 

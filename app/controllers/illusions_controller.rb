@@ -58,9 +58,11 @@ class IllusionsController < ApplicationController
   def show
     @illusion = Illusion.find(params[:id])
 
-    # if @illusion.approval != false && current_user != @illusion.creator
-    #   redirect_to illusions_path, notice: "This page is under review."
-    # end
+    if @illusion.approval == false && current_user == @illusion.creator
+      # all good
+    else 
+      redirect_to illusions_path, notice: "This page is under review."
+    end
   end
 
   def edit
@@ -71,7 +73,9 @@ class IllusionsController < ApplicationController
     @illusion = Illusion.find(params[:id])
     
     # all of the unallowed people 
-    if current_user != @illusion.creator && current_user != @illusion.creator.a_master
+    if current_user == @illusion.creator && current_user == @illusion.creator.a_master
+      # all good
+    else 
       redirect_to new_session_path
     end
   end

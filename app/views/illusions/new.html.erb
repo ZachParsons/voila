@@ -12,8 +12,10 @@
   <%= f.fields_for :tags do |t| %>
     <%= t.text_field :name %>
   <% end %>
-
-  <%= f.radio_button :intense, checked: false %>
-  <%= f.label :intense, "Intense? (this content is only available for master magicians)" %>
+  
+  <% if current_user && current_user.master == true %>
+    <%= f.radio_button :intense, checked: false %>
+    <%= f.label :intense, "Intense? (this content is only available for master magicians)" %>
+  <% end %>
   <%= f.submit %>
 <% end %>
