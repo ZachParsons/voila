@@ -18,7 +18,7 @@ apprentices = User.where(master: false)
 
 # add intense tags 
 intense_tags = 10.times.map do 
-	Tag.create!(name: Faker::Book.genre + " " + ["deathly","David Blaine stuff", "ILLEGAL"])
+	Tag.create!(name: Faker::Book.genre + " " + ["deathly","David Blaine stuff", "ILLEGAL"].sample)
 end 
 
 
@@ -33,7 +33,7 @@ end
 	approved_master_illusion.url = Faker::Internet.url(approved_master_illusion.title)
 
 	[1,2,3].sample.times do 
-		approved_master_illusion.tags << [intense_tags, either_tags].sample
+		approved_master_illusion.tags << [intense_tags.sample, either_tags.sample].sample
 	end
 
 	approved_master_illusion.save!
@@ -45,7 +45,7 @@ end
 	unapproved_apprentice_illusion.url = Faker::Internet.url(unapproved_apprentice_illusion.title)
 
 	[1,2,3].sample.times do 
-		unapproved_apprentice_illusion.tags << either_tags
+		unapproved_apprentice_illusion.tags << either_tags.sample
 	end
 
 	unapproved_apprentice_illusion.save!
@@ -57,7 +57,7 @@ end
 	approved_apprentice_illusion.url = Faker::Internet.url(approved_apprentice_illusion.title)
 
 	[1,2,3].sample.times do 
-		approved_apprentice_illusion.tags << either_tags
+		approved_apprentice_illusion.tags << either_tags.sample
 	end
 
 	approved_apprentice_illusion.save!
