@@ -18,7 +18,9 @@
   <%= render 'shared/errors.html.erb', locals: {errors: @errors} %>
 <% end %>
 
-<%= button_to "Star", starrings_path(current_user.id, @illusion.id)  %>
+<% if current_user %>
+  <%= button_to "Star", starrings_path(current_user.id, @illusion.id)  %>
+<% end %>
 
 <% if current_user == @illusion.creator %>
 	<!-- or if the master is viewing her illusion creator's work 
