@@ -9,7 +9,7 @@
   </head>
 
   <body>
-
+    <%= link_to "Home", root_path %>
     <% if session[:user_id] == nil %>
       <%= link_to "Login", new_session_url %>
       <%= link_to "Register", new_user_url %>
