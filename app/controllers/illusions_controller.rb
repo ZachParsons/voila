@@ -52,8 +52,11 @@ class IllusionsController < ApplicationController
     end
   end
 
-  def edit 
+  def edit
     @illusion = Illusion.find(params[:id])
+    if current_user == nil && current_user != @illusion.creator
+      redirect_to new_session_path
+    end
   end
 
   private
