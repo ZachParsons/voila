@@ -8,8 +8,9 @@
   <%= f.fields_for :tags do |t| %>
     <%= t.text_field :name %>
   <% end %>
-  
-  <% if @illusion.creator.master == current_user %>
+  <p> <%= @illusion.creator.stage_name %></p>
+  <% if @illusion.creator.a_master == current_user %>
+
     <%= f.label :approval %>
     <%= f.check_box :approval, checked: false %>
   <% end %>

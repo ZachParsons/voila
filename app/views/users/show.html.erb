@@ -27,7 +27,13 @@
   </ul>
 <% end %>
 
-<% if @user.master && @apprentice != nil %>
-  # 
-
+<% if @user.master && @apprentices != nil %>
+  <% @apprentices.each do |apprentice| %>
+    <p><%= apprentice.stage_name %>'s pending submissions</p>
+    <ul>
+    <% apprentice.illusions.each do |illusion| %>
+      <li><%= link_to illusion.title, illusion_path %></li>
+    <% end %>
+    </ul>
+  <% end %>
 <% end %>

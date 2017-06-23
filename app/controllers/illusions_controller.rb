@@ -26,7 +26,7 @@ class IllusionsController < ApplicationController
 
     @illusion.tags << tag_parser(params[:illusion][:tags][:name])
 
-    if @illusion.save
+    if @illusion.save!
       redirect_to illusion_path(@illusion), notice: "New illusion added."
     else
       @errors = @illusion.errors.full_messages
@@ -47,9 +47,9 @@ class IllusionsController < ApplicationController
   def show
     @illusion = Illusion.find(params[:id])
 
-    if @illusion.approval == false && current_user != @illusion.creator
-      redirect_to illusions_path, notice: "This page is under review."
-    end
+    # if @illusion.approval != false && current_user != @illusion.creator
+    #   redirect_to illusions_path, notice: "This page is under review."
+    # end
   end
 
   def edit
