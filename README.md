@@ -38,3 +38,6 @@ Then all the apprentices or un-logged-in users can learn about lowly illusions y
 
 ## Trello
 * [Agile workflow board](https://trello.com/b/3o3Sstt8/voila-dbc-clientproject-sealions)
+
+## License
+Ruby on Rails is released under the [MIT License](https://opensource.org/licenses/MIT).

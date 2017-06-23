@@ -9,6 +9,7 @@
   </head>
 
   <body>
+<<<<<<< HEAD
   <nav class="purple darken-4">
     <div class="nav-wrapper">
         <ul class="left">
@@ -17,6 +18,7 @@
             <li><%= link_to "Login", new_session_url %></li>
             <li><%= link_to "Register", new_user_url %></li>
           <% else %>
+            <li><a href="/users/<%= session[:user_id] %>" ><%= current_user.stage_name %></a></li>
             <li><%= link_to "Logout", session_path(session), method: :delete %></li>
           <% end %>
           <li><%= link_to "Search", illusions_path %></li>

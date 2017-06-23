@@ -5,7 +5,6 @@ class CreateTableIllusions < ActiveRecord::Migration[5.1]
       t.string :url, null: false
       t.boolean :intense, default: false
       t.integer :creator_id
-      t.boolean :approved, default: false
       t.timestamps(null: false)
     end
   end
