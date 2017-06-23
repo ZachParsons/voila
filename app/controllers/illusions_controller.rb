@@ -23,9 +23,17 @@ class IllusionsController < ApplicationController
 
   def new
     @illusion = Illusion.new
+    if session[:user_id] == nil
+      redirect_to root_path
+    end
   end
 
   def create
+
+    if session[:user_id] == nil
+      redirect_to root_path
+    end
+
     @illusion = Illusion.new(illusion_params)
     @creator = User.find(session[:user_id])
 
@@ -46,6 +54,9 @@ class IllusionsController < ApplicationController
   end
 
   def update
+    if session[:user_id] == nil
+      redirect_to root_path
+    end
     @illusion = Illusion.find(params[:id])
     @illusion.tags << tag_parser(params[:illusion][:tags][:name])
     if @illusion.update(illusion_params)
