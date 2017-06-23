@@ -1,11 +1,16 @@
 require 'faker'
 
-15.times do 
-	user = User.new(stage_name: Faker::Name.first_name + " " + Faker::Space.planet, password: "password", master: true)
-	user.email = Faker::Internet.email(user.stage_name)
-	user.save!
+5.times do 
+	master = User.new(stage_name: Faker::Name.first_name + " " + Faker::Space.planet, password: "password", master: true)
+	master.email = Faker::Internet.email(master.stage_name)
+	master.save!
 end 
 
+masters = User.where(master: true)
+
+# 5.times do 
+
+# end
 
 # 8.times do
 #   User.create!(stage_name: Faker::Space.planet + " " + Faker::Space.moon, email: Faker::Internet.safe_email, password: "voila", master: true, master_id: nil)
