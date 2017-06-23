@@ -2,11 +2,11 @@ class IllusionsController < ApplicationController
 
   def index
     if params[:search]
-      # .downcase, .strip, split(" "),
       search_terms = params[:search]
-      @illusions = Illusion.where(title: params[:search])
+      # make sure only approval show up in index
+      @illusions = Illusion.where(title: params[:search], approval: true)
     else
-      @illusions = Illusion.all
+      @illusions = Illusion.where(approval: true)
     end
   end
 
@@ -19,14 +19,10 @@ class IllusionsController < ApplicationController
     @creator = User.find(session[:user_id])
 
     if @creator.master
-      p @illusion.approval = true 
+      @illusion.approval = true 
     end 
 
     @illusion.creator = @creator
-
-    p @illusion.creator.master 
-
-    # @illusion.creator_id = session[:user_id]
 
     @illusion.tags << tag_parser(params[:illusion][:tags][:name])
 
@@ -50,6 +46,10 @@ class IllusionsController < ApplicationController
 
   def show
     @illusion = Illusion.find(params[:id])
+
+    if @illusion.approval == false && current_user != @illusion.creator
+      render 'index'
+    end
   end
 
   def edit 
