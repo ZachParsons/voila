@@ -11,7 +11,8 @@
 <% if @user.starrings.length > 0 %>
   <ul>
   <% @user.starrings.each do |starring| %>
-    <li><%= link_to starring.illusion.title, illusion_path %> <%  form_for :starring,  %></li>
+    <li><%= link_to starring.illusion.title, illusion_path %> - <%=  link_to 'remove', delete_starring_path(current_user.id, starring.id,), method: :delete, data: {confirm: 'Are you sure?'} %>
+    </li>
   <% end %>
   </ul>
 <% end %>

@@ -9,4 +9,6 @@ Rails.application.routes.draw do
 
   root 'tags#index'
 
+  delete '/users/:user_id/starrings/:starrings_id', to: 'starrings#destroy', as: :delete_starring
+
 end
