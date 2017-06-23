@@ -32,7 +32,9 @@
     <p><%= apprentice.stage_name %>'s pending submissions</p>
     <ul>
     <% apprentice.illusions.each do |illusion| %>
-      <li><%= link_to illusion.title, illusion_path %></li>
+      <% if illusion.approval == false %>
+        <li><%= link_to illusion.title, illusion_path %></li>
+      <% end %>
     <% end %>
     </ul>
   <% end %>
