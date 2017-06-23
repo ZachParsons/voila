@@ -1,11 +1,12 @@
 
 <h2>Illusion: <%= @illusion.title %></h2>
 
-<% if current_user.master == false && @illusion.approval == false  %>
+<% if current_user && current_user.master == false && @illusion.approval == false  %>
 <!-- add this when illusion migration adds column approved -->
 <!-- && @illusion.approved == false -->
   <p> Your new submission is pending...</p>
 <% end %>
+
     Title: <%= @illusion.title %>
     Url: <%= link_to @illusion.url, @illusion.url %>
     <% @illusion.tags.each do |tag| %>
