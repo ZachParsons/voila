@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  #bm & km
   def new
     @user = User.new
     @masters = User.where(master: true)
